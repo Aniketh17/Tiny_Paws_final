@@ -1,0 +1,114 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800&family=Lilita+One&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800&family=Lilita+One&family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300&family=Roboto+Slab:wght@100&display=swap');
+
+html
+{
+    font-family: "Poppins";
+}
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; 
+    margin-top: 5%;
+    margin-bottom: 3%;
+    border-radius: 25px;
+    padding: 20px; 
+}
+
+.product-item {
+    text-align: center;
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.product-image {
+    height: 170px;
+    width: 150px;
+    display: block;
+    margin: 0 auto 10px; 
+}
+
+.product-item .button {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(67, 67, 222, 0.863);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px;
+    margin-top: 10px;
+    display: inline-block; 
+    border-radius: 10px;
+}
+form 
+{
+    text-align: right;
+    margin-right: 70px;
+}
+form input
+{
+    border: none;
+    padding: 10px;
+    color: black;
+}
+form input:hover
+{
+    border-bottom: 1px solid black;
+}
+
+form button
+{
+    padding: 10px;
+    background-color: rgba(0, 0, 255, 0.725);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+}
+form select{
+    padding: 5px;
+}
+</style>
+<h1 style="text-align: center; font-size: 75px;">THE <img src="{% static 'app/images/backup/dog-paw.png' %}" height="60px"> STORE</h1>
+
+<form method="GET" action="{% url 'store:product_list' %}">
+    <input type="text" name="q" placeholder="Search products..." value="{{ request.GET.q }}">
+    <button type="submit" class="button">Search</button>
+    <select name="sort_by" onchange="this.form.submit()">
+        <option value="">Sort by</option>
+        <option value="price_asc" {% if request.GET.sort_by == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
+        <option value="price_desc" {% if request.GET.sort_by == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
+        <option value="name_asc" {% if request.GET.sort_by == 'name_asc' %}selected{% endif %}>Alphabetical (A-Z)</option>
+        <option value="name_desc" {% if request.GET.sort_by == 'name_desc' %}selected{% endif %}>Alphabetical (Z-A)</option>
+    </select>
+</form>
+<br><br>
+
+{% for category_dict in filtered_categories %}
+    <h2 style="text-align: center; font-size: 70px; font-family: Poppins; font-weight: 700;">{{ category_dict.category.heading }}</h2>
+    <div class="category-products">
+        <div class="product-list">
+            {% for product in category_dict.products %}
+                <div class="product-item">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                    <h2>{{ product.name }}</h2>
+                    <p>{{ product.description }}</p>
+                    <p>${{ product.price }}</p><br>
+                    <a href="{% url 'store:add_to_cart' product.id %}" class="button">Add to Cart</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,92 @@
+{% extends "base2.html" %}
+{% load static %}  <!-- Add this line to load the static files -->
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/home1.css' %}">{% endblock  %}
+{% block content %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'app/css/home1.css' %}">  {% endcomment %}
+{% block block1 %}  
+    <div id="about-us">
+        <div class="about">
+            <h2>It's <img src="/static/app/images/backup/dog-paw.png" height="60px">Some</h2>
+        </div>
+        <br><br>
+        <section>
+            <div class="a-image">
+                <img class="i3" src="/static/app/images/backup/pf.avif" height="400px" width="400px">
+            </div>
+            <div class="a-cont">
+                <h1>Premium Quality<span> Pet Food</span><br>Available</h1>
+                <p>Premium quality pet food, a feast of nourishment crafted with care.<br> 
+                   Rich in essential nutrients, it fuels vitality and promotes overall<br> 
+                   well-being. A delectable delight for your cherished companions.
+                </p>
+                <br>
+                <button class="button">
+                    <a href="store.html">View More</a>
+                </button>
+            </div>
+        </section>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="description">
+        <h2>Playtime Essentials</h2>
+        <div class="banner">
+            <img src="/static/app/images/backup/puzzle.png" height="250px" width="350px">
+            <h2>Is your pet<br> Bored & Lazy?<br><span>For endless fun and outdoors!</span><br>
+                <a href="store.html">CLICK HERE!</a>
+            </h2>
+        </div>
+    </div>
+    <br><br>
+
+    <section class="brands">
+        <h2>Document handling made easier</h2>
+        <br><br>
+        <div class="banner2">
+            <img class="doc" src="/static/app/images/backup/privacy.png" height="300px">
+            <h3>-> Data privacy <br> <br> -> Multiple Certificates <br><br> -> Seamless Sharing </h3>
+        </div>
+        <br><br>
+        <div class="banner3">
+            <h1>VACCINATION IS DUE IN</h1>
+            <p id="timer"></p>
+        </div>
+    </section>
+
+    <section  id="services" >
+        <br>
+        <h2>Services</h2>
+        <br>
+        <button class="s1">
+            <a href="local.html">
+                <img src="/static/app/images/backup/health.png" height="170px" width="170px">
+                <br><br>
+                <span>PET SERVICES</span>
+            </a>
+        </button>
+        <button class="s1">
+            <a href="mating.html">
+                <img src="/static/app/images/backup/mating.jpg" height="170px" width="170px">
+                <br><br>
+                <span>MATING PARTNER</span>
+            </a>
+        </button>
+        <button class="s1">
+            <a href="documents.html">
+                <img src="/static/app/images/backup/doc.png" height="170px" width="170px">
+                <br><br>
+                <span>DOCUMENTS</span>
+            </a>
+        </button>
+        <button class="s1">
+            <a href="hire.html">
+                <img src="/static/app/images/backup/walk.png" height="170px" width="170px">
+                <br><br>
+                <span>HIRE</span>
+            </a>
+        </button>
+    </section>
+
+    <script src="{% static 'app/js/home.js' %}"></script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <!-- Custom CSS -->
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins");
+      html,
+      body {
+        height: 100%;
+        font-size: 18px; /* Increase the base font size */
+        background: url("/static/app/images/background2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+
+        font-family: "Poppins", sans-serif;
+      }
+      .container {
+        flex: 1;
+        margin-top: 50px;
+      }
+      .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: transparent;
+      }
+      .card-header {
+        background-color: transparent; /* Orange color */
+        color: black;
+        font-weight: bolder;
+        text-transform: uppercase;
+        padding: 20px;
+        font-size: 75px; /* Increase header font size */
+      }
+      .card-body {
+        padding: 40px;
+      }
+      .form-group {
+        margin-bottom: 25px;
+      }
+      .form-control {
+        border: 2px solid black; /* Orange border */
+        border-radius: 5px;
+        color: #495057; /* Dark gray text */
+        font-size: 18px; /* Increase input font size */
+        background-color: #fff; /* White background */
+        box-shadow: none; /* No box shadow */
+        padding: 10px 15px; /* Increase padding for inputs */
+      }
+      .form-control:focus {
+        border-color: #f90; /* Darker orange on focus */
+        box-shadow: 0 0 0 0.2rem rgba(255, 111, 0, 0.25); /* Lighter shadow on focus */
+      }
+      .btn-primary {
+        background-color: #ff6f00; /* Orange color */
+        border-color: #ff6f00;
+        font-size: 18px; /* Increase button font size */
+        font-weight: bold;
+        padding: 12px 40px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+      .btn-primary:hover {
+        background-color: #f90; /* Darker orange on hover */
+        border-color: #f90;
+      }
+      .btn-primary:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 111, 0, 0.5); /* Lighter shadow on focus */
+      }
+      .form-label {
+        color: #fff; /* Orange color for labels */
+        font-weight: bold;
+        font-size: 18px; /* Increase label font size */
+      }
+      .form-text {
+        color: #6c757d; /* Gray color for helper text */
+        font-size: 16px; /* Increase helper text font size */
+      }
+      .footer {
+        background-color: #222;
+        color: #ddd;
+        padding: 40px 0;
+        width: 100%;
+        font-family: "Arial", sans-serif;
+      }
+
+      .footer .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+        flex-wrap: wrap;
+      }
+
+      .footer .footer-section {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .footer .logo-text {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .footer .footer-section h2 {
+        color: #fff;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .footer .footer-section p,
+      .footer .footer-section .contact span,
+      .footer .footer-section ul a {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .footer .footer-section .contact span {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .footer .footer-section .social-links a {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 20px;
+        color: #ddd;
+        transition: color 0.3s;
+      }
+
+      .footer .footer-section .social-links a:hover {
+        color: #ff6f61;
+      }
+
+      .footer .footer-section ul {
+        list-style: none;
+      }
+
+      .footer .footer-section ul a {
+        text-decoration: none;
+        color: #ddd;
+        transition: color 0.3s;
+      }
+
+      .footer .footer-section ul a:hover {
+        color: #ff6f61;
+      }
+
+      .footer-bottom {
+        background-color: #111;
+        color: #888;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 14px;
+        border-top: 1px solid #333;
+      }
+
+      .footer-bottom a {
+        color: #ff6f61;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-bottom a:hover {
+        color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-header text-center">
+              <span
+                ><a href="#"
+                  ><button
+                    style="
+                      font-size: 15px;
+                      margin-right: 50px;
+                      margin-bottom: 20px;
+                      padding: 15px;
+                      background-color: orangered;
+                      color: white;
+                      border-radius: 15px;
+                      border-style: none;
+                      font-weight: 700;
+                    "
+                    class="back"
+                  >
+                    Back
+                  </button></a
+                ></span
+              >Contact Us
+            </div>
+            <div class="card-body">
+              <form method="post" id="contactForm">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label for="id_name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="id_name"
+                    name="name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="id_email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="id_email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="id_message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="id_message"
+                    name="message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h2 class="logo-text">Tiny Paws</h2>
+          <p>
+            At Tiny Paws, we are dedicated to providing the best products for
+            your beloved pets. From nutritious food to fun toys and stylish
+            accessories, we have everything to make your pets happy.
+          </p>
+          <div class="contact">
+            <span><i class="fas fa-phone"></i> &nbsp; +1-234-567-890</span>
+            <span
+              ><i class="fas fa-envelope"></i> &nbsp; info@tinypaws.com</span
+            >
+          </div>
+        </div>
+
+        <div class="footer-section links">
+          <h2>Quick Links</h2>
+          <br />
+          <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>Shop</li></a>
+            <a href="#"><li>About Us</li></a>
+            <a href="#"><li>Contact</li></a>
+            <a href="#"><li>FAQ</li></a>
+          </ul>
+        </div>
+
+        <div class="footer-section social">
+          <h2>Follow Us</h2>
+          <br />
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; tinypaws.com | Designed by Tiny Paws Team
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS for showing alert -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          {% if success %}
+              alert('Your message has been successfully submitted. We\'ll get back to you soon!');
+          {% endif %}
+      });
+    </script>
+  </body>
+</html>

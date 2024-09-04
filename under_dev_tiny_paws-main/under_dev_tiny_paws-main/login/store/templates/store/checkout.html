@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+</head>
+<style>
+        body {
+            background:url("https://media.istockphoto.com/id/1011583734/vector/monochrome-black-and-white-dog-cat-pet-animal-paw-foot-hand-drawn-ink-sketch-seamless.jpg?s=612x612&w=0&k=20&c=JSFAQeJvgctndBMWWjBA7qeOME7crE51XBFf4v_QooE=");
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 2em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .item-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .checkout-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            color: #fff;
+            background: #28a745;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: #218838;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .checkout-btn:active {
+            background: #1e7e34;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+</style>
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+        <form method="post" action="{% url 'store:checkout' %}">
+            {% csrf_token %}
+            <ul>
+                {% for item in cart_items %}
+                <li>
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="item-image">
+                    {{ item.quantity }} x {{ item.product.name }} - ${{ item.product.price }}
+                </li>
+                {% endfor %}
+            </ul>
+            <p>Total: ${{ total }}</p>
+            <button type="submit" class="checkout-btn">Place Order</button>
+        </form>
+    </div>
+</body>
+</html>

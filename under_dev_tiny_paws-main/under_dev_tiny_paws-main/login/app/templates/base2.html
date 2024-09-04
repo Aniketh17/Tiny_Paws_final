@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/home.css' %}">
+    <title>{% block title %}Home{% endblock %}</title>
+    {% block styles %}
+    
+    <!-- Load the specific CSS after global -->
+
+    {% endblock %}
+    <link rel="icon" type="x-icon" href="/static/app/images/dog_paw.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    
+    
+    <title>Home</title>
+</head>
+<body>
+    
+    <header class="header">
+        <nav>
+            <a href=""><span>Home</span></a>
+            <a href="#services">Services</a>
+            <a href="product_list/">Store</a>
+            <a href="contact/">Contact-Us</a>
+            <a href="#"><i class='bx bxs-cart-alt'></i></a>
+            <a href="#"><i class='bx bxs-user'></i></a>
+        </nav>
+       </header>
+       <div class="background">
+        <div class="background2">
+         <img class="i1" src="/static/app/images/bottom_wave.png" alt="">
+        </div>
+         </div>
+    </nav>
+    
+    {% block block1 %}{% endblock  %}
+    {% block block2 %}{% endblock  %}
+    {% block block3 %}{% endblock  %}
+    {% block block4 %}{% endblock  %}
+    {% block block5 %}{% endblock  %}
+    {% block block6 %}{% endblock  %}
+<div class="imgmid">
+    <img src="" alt="">
+</div>
+
+
+
+
+
+{% comment %} !footer {% endcomment %}
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2 class="logo-text">Tiny Paws</h2>
+        <p>
+          At Tiny Paws, we are dedicated to providing the best products for your beloved pets. From nutritious food to fun toys and stylish accessories, we have everything to make your pets happy.
+        </p>
+        <div class="contact">
+          <span><i class="fas fa-phone"></i> &nbsp; +1-234-567-890</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; info@tinypaws.com</span>
+        </div>
+      </div>
+  
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <br>
+        <ul>
+          <a href="#"><li>Home</li></a>
+          <a href="#"><li>Shop</li></a>
+          <a href="#"><li>About Us</li></a>
+          <a href="#"><li>Contact</li></a>
+          <a href="#"><li>FAQ</li></a>
+        </ul>
+      </div>
+  
+      <div class="footer-section social">
+        <h2>Follow Us</h2>
+        <br>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      &copy; tinypaws.com | Designed by Tiny Paws Team
+    </div>
+  </footer>
+
